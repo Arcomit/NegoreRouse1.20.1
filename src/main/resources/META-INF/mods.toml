@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+#主页ID
+displayURL="https://www.mcmod.cn/class/1077.html"
+#待制
+logoFile="negorerouse.png"
+authors="${mod_authors}"
+
+description='''
+若你敢握住它们，便已踏入永夜秘境。
+“光明易朽，曈光永恒。”
+If you dare to grasp them, you step into the eternal night’s realm.
+"Light fades easily, but twilight endures forever."
+'''
+[[dependencies.${mod_id}]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
