@@ -7,6 +7,8 @@
   "mixins": [
   ],
   "client": [
+    "CreativeInventoryMixin",
+    "ICreativeInventoryMixin"
   ],
   "injectors": {
     "defaultRequire": 1

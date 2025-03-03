@@ -18,6 +18,28 @@ description='''
 If you dare to grasp them, you step into the eternal night’s realm.
 "Light fades easily, but twilight endures forever."
 '''
+#拔刀剑：重锋(前置)
+[[dependencies.${mod_id}]]
+    modId="slashblade"
+    mandatory=true
+    versionRange="[1.1.11,)"
+    ordering="NONE"
+    side="BOTH"
+#光子
+[[dependencies.${mod_id}]]
+    modId="photon"
+    mandatory=true
+    versionRange="[1.1.0,)"
+    ordering="NONE"
+    side="BOTH"
+#饰品
+[[dependencies.${mod_id}]]
+    modId="curios"
+    mandatory=true
+    versionRange="[5.11.1,)"
+    ordering="NONE"
+    side="BOTH"
+
 [[dependencies.${mod_id}]]
     modId="forge"
     mandatory=true

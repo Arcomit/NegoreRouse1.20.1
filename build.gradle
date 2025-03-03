@@ -27,6 +27,9 @@ base {
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+
+//启用嵌套模组依赖
+jarJar.enable()
 minecraft {
     mappings channel: mapping_channel, version: mapping_version
     copyIdeResources = true
@@ -104,6 +107,17 @@ repositories {
     maven {
         url "https://cursemaven.com"
     }
+
+    maven {
+        url = "https://maven.firstdarkdev.xyz/snapshots"
+    } // LDLib, Photon
+
+    repositories {
+        maven {
+            name = "Illusive Soulworks maven"
+            url = "https://maven.theillusivec4.top/"
+        }
+    }// Curios
 }
 
 dependencies {
@@ -113,9 +127,19 @@ dependencies {
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
     //拔刀剑：重锋
-    implementation fg.deobf("curse.maven:slashblade-resharped-1022428:5957105")
+    implementation fg.deobf("curse.maven:slashblade-resharped-1022428:6250353")
     //玩家动画库
     implementation fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:1.0.2-rc1+1.20")
+
+    //光子
+    implementation fg.deobf("com.lowdragmc.ldlib:ldlib-forge-1.20.1:1.0.33.b") { transitive = false }
+    implementation fg.deobf("com.lowdragmc.photon:photon-forge-1.20.1:1.1.0") { transitive = false }
+    //编译时打包依赖
+    jarJar(group: 'com.lowdragmc.photon', name: 'photon-forge-1.20.1', version: '[1.1.0,)') {
+        //避免打包多余的依赖（如依赖的依赖）
+        exclude group: 'com.lowdragmc.ldlib', module: 'ldlib-forge-1.20.1'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    }
 
     //JEI
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
@@ -132,7 +156,11 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:spark-361579:4738952")
     //光影
     runtimeOnly fg.deobf("curse.maven:xenon-564239:5752040")
-    runtimeOnly fg.deobf("curse.maven:oculus-581495:5299671")
+    runtimeOnly fg.deobf("curse.maven:oculus-581495:5299671")\
+
+    //饰品模组
+    compileOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api"))
+    runtimeOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}"))
 }
 
 tasks.named('processResources', ProcessResources).configure {

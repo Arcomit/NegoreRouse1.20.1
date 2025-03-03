@@ -1,0 +1,25 @@
+{
+  "item_group.negorerouse.tab": "神の遗物",
+
+  //物之铭
+  "item_type.negorerouse.fragment": "神之碎片",
+  "item_type.negorerouse.soul": "神残魂",
+  "item_type.negorerouse.grain": "神魂凝粒",
+  "item_type.negorerouse.ingot": "神魂凝锭",
+  "item_type.negorerouse.block": "神魂聚合块",
+  "item_type.negorerouse.glory": "赐福神魂块",
+
+  //物之言
+  "tip.negorerouse.artemis.divinity_item": "阿尔忒弥斯",
+  "tip.negorerouse.hercules.divinity_item": "海格力斯",
+
+  "tip.negorerouse.erebus.divinity_item": "厄瑞波斯",
+  "tip.negorerouse.chronos.divinity_item": "柯罗诺斯",
+  "tip.negorerouse.protogenoi.divinity_item": "普洛托革诺伊",
+
+  "tip.negorerouse.chaos.divinity_item": "卡俄斯",
+  "tip.negorerouse.tartarus.divinity_item": "塔耳塔洛斯",
+
+  //物品分类
+  "filter.negorerouse.test": "牛逼plus"
+}
